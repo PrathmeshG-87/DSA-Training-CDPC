@@ -1,0 +1,75 @@
+import sys
+
+class GetNode:
+    def __init__(self):
+        self.data=None
+        self.rear=None
+
+class LinkedList:
+    def __init__(self):
+        self.head=None
+
+    def append(self):
+        daataa = int(input("Enter data: "))
+        newNode=GetNode()
+        newNode.data=daataa
+        if self.head==None:
+            self.head=newNode
+        else:
+            ptr=self.head
+            while ptr.rear!=None:
+                ptr=ptr.rear
+            ptr.rear=newNode
+            print(daataa," is added")
+
+    def traverse(self):
+        if self.head==None:
+            print("Linked List is Empty")
+        else:
+            ptr=self.head
+            print("Front: ",end=" ")
+            while ptr!=None:
+                print(ptr.data," <- ", end="")
+                ptr=ptr.rear
+    def deleteAtBegin(self):
+        if self.head==None:
+            print("List is Empty.")
+        else:
+            ptr=self.head
+            # ptr1=ptr.next
+            # ptr.next=None
+            # head=ptr1
+            self.head = ptr.rear
+            print(ptr.data," is Deleted.")
+
+if __name__=='__main__':
+    obj=LinkedList()
+    while True:
+        print("\n1. Append")
+        print("2. Traverse")
+        print("3. Delete First Node")
+        # print("4. Add at Between")
+        # print("5. Delete First Node")
+        # print("6. Delete Last Node")
+        print("0. Exit")
+
+        n=int(input("Select any choice: "))
+
+        if n==1:
+            obj.append()
+            obj.traverse()
+        elif n==2:
+            obj.traverse()
+        elif n==3:
+            obj.deleteAtBegin()
+            obj.traverse()
+        # elif n==3:
+        #     obj.addAtBeg()
+        #     obj.traverse()
+        # elif n==4:
+        #     obj.addAtBetween()
+        #     obj.traverse()
+        # elif n==6:
+        #     obj.deleteAtEnd()
+        elif n==0:
+            sys.exit(0)
