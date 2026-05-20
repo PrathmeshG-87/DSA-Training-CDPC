@@ -11,5 +11,5 @@ def power(x,y):
         return x*power(x,y-1)
         
 if __name__=='__main__':
-    res=power(2,3)
+    res=power(2,100)
     print(res)
